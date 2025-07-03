@@ -109,9 +109,8 @@ def export_csv():
                     headers={'Content-Disposition': 'attachment;filename=weather_history.csv'}) 
 #response to trigger donload here
     
-
 if __name__ == '__main__':
-    app.run(debug=True) 
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)    
+    from waitress import serve
+    import os
+    port = int(os.environ.get('PORT', 10000))  # Default port in Render
+    serve(app, host='0.0.0.0', port=port)  
