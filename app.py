@@ -108,10 +108,10 @@ def export_csv():
     return Response(generate(), mimetype='text/csv',
                     headers={'Content-Disposition': 'attachment;filename=weather_history.csv'}) 
 #response to trigger donload here
-       
-
-
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True) 
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)    
